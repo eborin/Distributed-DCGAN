@@ -11,7 +11,11 @@
     debug:
       msg: "Teste SSH OK!"
 
-  # Task utilizada para adicionar o usuário ubuntu ao grupo Docker
+  ###############################################
+  #   Adicione suas tasks a partir daqui..      #
+  ###############################################
+
+  # Exemplo de task utilizada para adicionar o usuário ubuntu ao grupo Docker
   - name: "Task 2: Adicionar usuario ubuntu ao grupo docker"
     become: true
     user:
@@ -19,22 +23,18 @@
       groups: docker
       append: yes
 
-  # Reinicia a conexão SSH
+  # Exemplo de task para reiniciar a conexão SSH
   - name: "Task 3: Reinicar a conexão ssh para a alterações de grupos tenham efeito"
     ansible.builtin.meta:
       reset_connection
 
-  ###############################################
-  #   Adicione suas tasks a partir daqui..      #
-  ###############################################
 
-
+  # Exemplo de task que imprime uma mensagem de sucesso
+  - name: "Task N: Final"
+    debug:
+      msg: "Playbook executado com sucesso!"
 
   ###############################################
   #   Fim das suas tasks..                      #
   ###############################################
 
-  # Imprime uma mensagem de sucesso
-  - name: "Task N: Final"
-    debug:
-      msg: "Playbook executado com sucesso!"
